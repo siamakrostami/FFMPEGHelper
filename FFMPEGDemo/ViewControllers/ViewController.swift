@@ -47,11 +47,9 @@ extension ViewController{
     
     //MARK:- Convert Local File From Main Bundle
     func ConvertLocalFile(){
-        ///Replace "Your_Audio_File_Name" with your local audio name
-        ///Replace "Your_Audio_File_Extension" with your local audio file extension(mp3,mp4,m4a and etc)
-        let url = Bundle.main.url(forResource: "Your_Audio_File_Name", withExtension: "Your_Audio_File_Extension")
+        let url = Bundle.main.url(forResource: "Your_Media_File_Name", withExtension: "Your_Media_File_Extension")
         guard let inputUrl = url else{return}
-        self.convertViewModel.convertAudioFrom(inputUrl, with: .low)
+        self.convertViewModel.convertAudioFrom(url: inputUrl, quality: .low)
     }
     
     

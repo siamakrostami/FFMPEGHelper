@@ -20,13 +20,27 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		40B50F092ECBC553D0A0515195F97BF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		726AC508A59A9C41DAA8BA6A690630EA /* Pods-FFMPEGDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D602F322C7A3C865FBA07D8315F21F1 /* Pods-FFMPEGDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B0F2C7ADD1D8C299DBB078E755AB8C20 /* Pods-FFMPEGDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE77465CF1A4A008EFA3672F6AE59C15 /* Pods-FFMPEGDemo-dummy.m */; };
+		25932891993D663085D9E559A87B2B9F /* AudioVisualizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700633DEDA2EA167DAA12B19DA92574 /* AudioVisualizationView.swift */; };
+		378FB83D16D1775A687B3E3F10C6EEA4 /* SoundWave-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E861EDBEFE31780C60B48B5C38CD979 /* SoundWave-dummy.m */; };
+		39FC3CB41EDC97C8B13CF279BBE4646B /* Pods-FFMPEGDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59AE5F89F752DBAD3E99FE14A49D968B /* Pods-FFMPEGDemo-dummy.m */; };
+		44EFF6FB94B5404CE0B3311CE62C8449 /* Chronometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD171902FDF3A82BEB9B581D5DF3132A /* Chronometer.swift */; };
+		4C254423901322B7F041476B9996E815 /* Pods-FFMPEGDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C71B12E9AEBFDA0ED24FEF49CA418AF8 /* Pods-FFMPEGDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		723E915355725BF77E78E1A80AEA0223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		74477FD04FF4A0C89FE017BB57F83093 /* AudioVisualizationView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 23D84F12338B48A7087A243292187B69 /* AudioVisualizationView.xib */; };
+		760C938EA07889877E63E3A1071138A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		CA6D95D21E2DF2FE16811E5A472434C3 /* SoundWave-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0888E3DE720212FEA91DF23700DC986E /* SoundWave-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E48C7231C212D83CE25A2990D0318C88 /* BaseNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F9E64D1369130273F61358DD831AB3 /* BaseNibView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		41C8D8A3E8BD7721D719C1E325D65A8F /* PBXContainerItemProxy */ = {
+		29C3060D36AF56DDE35EBFDA66D26559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0987D2BA445E423F5BB22D4899D2E22;
+			remoteInfo = SoundWave;
+		};
+		799CC677CA6FBD5564E1B8B5C4D81108 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -36,101 +50,135 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		010423755924E8F0B7AC06FA973ED815 /* tiff.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = tiff.xcframework; sourceTree = "<group>"; };
-		042D7293F9DEF47C9A495FA2EBD81381 /* libavfilter.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavfilter.xcframework; sourceTree = "<group>"; };
-		09AB62C029361A9C85544751B81CA980 /* libvorbis.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvorbis.xcframework; sourceTree = "<group>"; };
-		0CBD44D74EBC0510F677440CC7DA01CA /* libtheoraenc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libtheoraenc.xcframework; sourceTree = "<group>"; };
-		0F56639EE82A3F0D73F3400AD9C3C3DA /* Pods-FFMPEGDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FFMPEGDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		14503AFA64821A3BCFC6CE7E4B73FEC7 /* libvidstab.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvidstab.xcframework; sourceTree = "<group>"; };
-		1ABE56E9141517675F5F97B026687C03 /* libavdevice.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavdevice.xcframework; sourceTree = "<group>"; };
-		1F1ED68BCB8350DCDFA0B0D9347901AA /* libaom.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libaom.xcframework; sourceTree = "<group>"; };
-		210CE4F9307069A46E54D2F4EA3CFF93 /* libwebpmux.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libwebpmux.xcframework; sourceTree = "<group>"; };
-		2212D8749E5B7FB5D5ED063E7FB259F9 /* expat.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = expat.xcframework; sourceTree = "<group>"; };
-		2500B9F474C8EF3B6779FAE7DD789BF4 /* libvpx.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvpx.xcframework; sourceTree = "<group>"; };
-		255412C7AC7B7B423BA3DB8CC0861781 /* libxml2.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libxml2.xcframework; sourceTree = "<group>"; };
-		29F43D169A525E191A21D9E8D1C3FCB4 /* Pods-FFMPEGDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FFMPEGDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		3357580B16E0F05DC983D854D3B30E7B /* libswscale.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libswscale.xcframework; sourceTree = "<group>"; };
-		3D6DECBA1FEA5F5A1F33D4177623A642 /* fribidi.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = fribidi.xcframework; sourceTree = "<group>"; };
-		554E2412E40B9BDE12D6FFF64208DA88 /* libilbc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libilbc.xcframework; sourceTree = "<group>"; };
-		5997BD761790C0EF94169CF282D1673A /* soxr.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = soxr.xcframework; sourceTree = "<group>"; };
-		5B26D3BFCEBACA6F24AF70C7B6C49FC3 /* freetype.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = freetype.xcframework; sourceTree = "<group>"; };
-		5BD8BF6B69FFED91E5ADA8788B4AA6CC /* mobile-ffmpeg-full-gpl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "mobile-ffmpeg-full-gpl.release.xcconfig"; sourceTree = "<group>"; };
-		5E28AF08E079D64D4962F08A27F7238F /* lame.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = lame.xcframework; sourceTree = "<group>"; };
-		665DFC01FB376F26403D18C77A359A4A /* libogg.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libogg.xcframework; sourceTree = "<group>"; };
-		6DC9087344E2C449D4BE5A211193B519 /* libavutil.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavutil.xcframework; sourceTree = "<group>"; };
-		6E4773A29371E14C15B723D8296A842D /* libhogweed.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libhogweed.xcframework; sourceTree = "<group>"; };
-		6FBDF38DD6482F30B8F7F2ADC8DFFD85 /* twolame.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = twolame.xcframework; sourceTree = "<group>"; };
+		01B1A9A9CE2F3860BF2216BDC93D77B1 /* Pods-FFMPEGDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FFMPEGDemo-Info.plist"; sourceTree = "<group>"; };
+		025C15F0A7983E6DAD5C7FE5C4775851 /* snappy.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = snappy.xcframework; sourceTree = "<group>"; };
+		0888E3DE720212FEA91DF23700DC986E /* SoundWave-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SoundWave-umbrella.h"; sourceTree = "<group>"; };
+		1181CAFAF26FFFF51D3A873E46BAD2E9 /* libogg.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libogg.xcframework; sourceTree = "<group>"; };
+		11A63B99F6845046104EAB8F9FA4128F /* SoundWave.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SoundWave.modulemap; sourceTree = "<group>"; };
+		1519FDBBC1B5D592225011364F65264B /* libvidstab.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvidstab.xcframework; sourceTree = "<group>"; };
+		184303101FBA64C8862B2696BCF9E0EA /* libtheora.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libtheora.xcframework; sourceTree = "<group>"; };
+		19C71C2ADD76207BD7A12FC462BC3E7A /* libvorbisenc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvorbisenc.xcframework; sourceTree = "<group>"; };
+		1D7B50FD903B9E70686546BE6C00D307 /* libpng.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libpng.xcframework; sourceTree = "<group>"; };
+		23D84F12338B48A7087A243292187B69 /* AudioVisualizationView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = AudioVisualizationView.xib; path = SoundWave/Classes/AudioVisualizationView.xib; sourceTree = "<group>"; };
+		26E25050CED8E93AB08D5CAE68DE40BB /* x265.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = x265.xcframework; sourceTree = "<group>"; };
+		2700633DEDA2EA167DAA12B19DA92574 /* AudioVisualizationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioVisualizationView.swift; path = SoundWave/Classes/AudioVisualizationView.swift; sourceTree = "<group>"; };
+		27231EAEAB1426BB4E0BA24F38C39629 /* mobile-ffmpeg-full-gpl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "mobile-ffmpeg-full-gpl.debug.xcconfig"; sourceTree = "<group>"; };
+		27D22887F1213853B1E4BD295F3FD564 /* gmp.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = gmp.xcframework; sourceTree = "<group>"; };
+		2DC77445DFE636FAC410285CE3087B1A /* tiff.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = tiff.xcframework; sourceTree = "<group>"; };
+		2E2BE63AC285B9033B6AFBBBC1CC752F /* gnutls.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = gnutls.xcframework; sourceTree = "<group>"; };
+		3787FDA284C11258AB2F79ABD9EDC73F /* fontconfig.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = fontconfig.xcframework; sourceTree = "<group>"; };
+		3A6BEF0652F250C07BDAF0F8EEC7667C /* libtheoraenc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libtheoraenc.xcframework; sourceTree = "<group>"; };
+		3AF6EBED39EB27E00D722C713BB74070 /* jpeg.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = jpeg.xcframework; sourceTree = "<group>"; };
+		3D5B94B61AD9F28E59DC522FF62F9A07 /* twolame.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = twolame.xcframework; sourceTree = "<group>"; };
+		40A6A27EBA75F38D359A35DD64BB39CB /* opus.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = opus.xcframework; sourceTree = "<group>"; };
+		43A1F0349D049C9715E5DB4FDC7BE46E /* Pods-FFMPEGDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FFMPEGDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		43F9E64D1369130273F61358DD831AB3 /* BaseNibView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseNibView.swift; path = SoundWave/Classes/BaseNibView.swift; sourceTree = "<group>"; };
+		4418AF2F8285C2831BE3D5FDA5052B00 /* fribidi.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = fribidi.xcframework; sourceTree = "<group>"; };
+		4F7093BA3684AB22064F21CFBEDC2E82 /* soxr.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = soxr.xcframework; sourceTree = "<group>"; };
+		4F7266CBC9A489785AF7F0C5CA72F056 /* libopencore-amrnb.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = "libopencore-amrnb.xcframework"; sourceTree = "<group>"; };
+		4FFF80ADBD9E6339BD2C965E4C2EB6B3 /* libtheoradec.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libtheoradec.xcframework; sourceTree = "<group>"; };
+		5290ADB7761ED83692F8EDE18D133AA8 /* Pods-FFMPEGDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FFMPEGDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		59742CC3B878C32DB579EC793E91F63C /* SoundWave.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SoundWave.release.xcconfig; sourceTree = "<group>"; };
+		59AE5F89F752DBAD3E99FE14A49D968B /* Pods-FFMPEGDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FFMPEGDemo-dummy.m"; sourceTree = "<group>"; };
+		5E36417D021E6CD9A104DAE74E493D3E /* vo-amrwbenc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = "vo-amrwbenc.xcframework"; sourceTree = "<group>"; };
+		5E861EDBEFE31780C60B48B5C38CD979 /* SoundWave-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SoundWave-dummy.m"; sourceTree = "<group>"; };
+		616DF3047EA8FC023D3662B929B33A3A /* libsndfile.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libsndfile.xcframework; sourceTree = "<group>"; };
+		643BAFE9F680B891BE283841F7AFF64C /* mobile-ffmpeg-full-gpl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "mobile-ffmpeg-full-gpl.release.xcconfig"; sourceTree = "<group>"; };
+		6BB420BCF561643C3A17284D0963EE1D /* libavformat.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavformat.xcframework; sourceTree = "<group>"; };
+		7007E46F6B914086CCE00A784060C57F /* expat.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = expat.xcframework; sourceTree = "<group>"; };
+		7241A27232318D38334530464F4DE365 /* speex.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = speex.xcframework; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		738D35C8AE953BFC46A9357737C65BA2 /* kvazaar.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = kvazaar.xcframework; sourceTree = "<group>"; };
-		77192E166148D82D511CC6E59BE069C5 /* libpng.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libpng.xcframework; sourceTree = "<group>"; };
-		7D7FD2653B02C222395039ECDCBC965F /* libsndfile.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libsndfile.xcframework; sourceTree = "<group>"; };
-		7ECCFBD799C02F1801340DBDCF5BE473 /* libwebpdemux.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libwebpdemux.xcframework; sourceTree = "<group>"; };
-		80C36F613941F8E416F156639E56C435 /* gnutls.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = gnutls.xcframework; sourceTree = "<group>"; };
-		85DC57DEBE10DC6C264C84E61EAE1BEA /* mobile-ffmpeg-full-gpl-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "mobile-ffmpeg-full-gpl-xcframeworks.sh"; sourceTree = "<group>"; };
-		8D602F322C7A3C865FBA07D8315F21F1 /* Pods-FFMPEGDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FFMPEGDemo-umbrella.h"; sourceTree = "<group>"; };
-		8DCF02D82AB7D47A5435C93148C3B553 /* x265.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = x265.xcframework; sourceTree = "<group>"; };
-		8DEDB75C29548DB1279D6C794180ABC6 /* wavpack.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = wavpack.xcframework; sourceTree = "<group>"; };
-		8FB5EC7FD9D6325ADD39055DA85982E0 /* jpeg.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = jpeg.xcframework; sourceTree = "<group>"; };
-		910389C3AB26AA10BA2102EB0E5FBA2F /* libtheora.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libtheora.xcframework; sourceTree = "<group>"; };
-		912DB7678CA70306F7F961397E4A7787 /* speex.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = speex.xcframework; sourceTree = "<group>"; };
-		97CCC31F09EC510A810FB4E5A38733D6 /* fontconfig.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = fontconfig.xcframework; sourceTree = "<group>"; };
-		989455138C50A8ECC8C16E820D3BFF6F /* libwebp.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libwebp.xcframework; sourceTree = "<group>"; };
-		9945808BAC1E0403E6A70B9AF121AB22 /* shine.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = shine.xcframework; sourceTree = "<group>"; };
-		9B9170BA0BCEE84C9ED49281009EFB35 /* libass.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libass.xcframework; sourceTree = "<group>"; };
+		75003DA78D9DEEE09E998A180963C921 /* xvidcore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = xvidcore.xcframework; sourceTree = "<group>"; };
+		78A0E0B9C8D2E3778D0E215D30B0AAB4 /* Pods-FFMPEGDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FFMPEGDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7EE98CD278B90D36657D6039023CA9C8 /* libhogweed.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libhogweed.xcframework; sourceTree = "<group>"; };
+		80B2E5566747E5F0BCDEAF3AF46C1A3D /* libvorbis.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvorbis.xcframework; sourceTree = "<group>"; };
+		82381209283259A8D29DE55CB2522AA1 /* x264.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = x264.xcframework; sourceTree = "<group>"; };
+		843FFB1A5DEC64169D3AD840635DA0CC /* SoundWave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SoundWave.framework; path = SoundWave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8680318E9FD5945D1F5A5397B45C6574 /* libavcodec.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavcodec.xcframework; sourceTree = "<group>"; };
+		870E36A412F3C7C076E9FBF346BC8B76 /* libswscale.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libswscale.xcframework; sourceTree = "<group>"; };
+		87B6F2DF9CF0277EAD9B010B5C25E653 /* Pods-FFMPEGDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FFMPEGDemo.modulemap"; sourceTree = "<group>"; };
+		88EE54B3197A6970E3CD0273C991D0CD /* shine.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = shine.xcframework; sourceTree = "<group>"; };
+		8A78EA38A77E0A131AFF6A6B0CC3A731 /* lame.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = lame.xcframework; sourceTree = "<group>"; };
+		8D8024D4CA705EC79ABC14441345E03D /* libswresample.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libswresample.xcframework; sourceTree = "<group>"; };
+		8F538119F7FA29852B860D76ADE0B6D3 /* libvpx.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvpx.xcframework; sourceTree = "<group>"; };
+		97989255EE0EDBCF3B040BE28BCF955D /* SoundWave.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SoundWave.debug.xcconfig; sourceTree = "<group>"; };
+		9AD9F738115B1A21EAFE4084C9BD691F /* libxml2.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libxml2.xcframework; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F4F4301A466BD6A125B9BC0BCDFE24F /* libnettle.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libnettle.xcframework; sourceTree = "<group>"; };
-		A36A2CA0B59A50981BB0DF16525F9921 /* libtheoradec.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libtheoradec.xcframework; sourceTree = "<group>"; };
-		A50DF76490C573A3E51FD0637EA47B0F /* libopencore-amrnb.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = "libopencore-amrnb.xcframework"; sourceTree = "<group>"; };
-		A5B0315B60363350CEF526BDFA23AFD6 /* libavcodec.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavcodec.xcframework; sourceTree = "<group>"; };
-		AC9CB019D22F13E64C35400DA5F6137D /* Pods-FFMPEGDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FFMPEGDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		AE19DEB437F9008BD02BCEB2F131CE1A /* snappy.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = snappy.xcframework; sourceTree = "<group>"; };
-		B04170C9C805BD3A276D94684384F468 /* Pods-FFMPEGDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FFMPEGDemo-Info.plist"; sourceTree = "<group>"; };
-		B3CE4E305F91D95657D5460B7C77A59E /* gmp.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = gmp.xcframework; sourceTree = "<group>"; };
-		B54CEB811395A97AD244EDCD654037C0 /* libswresample.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libswresample.xcframework; sourceTree = "<group>"; };
-		B8CEF7B8458D5C81C69CEBF1F7026D04 /* Pods-FFMPEGDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FFMPEGDemo.release.xcconfig"; sourceTree = "<group>"; };
-		BCF6BE98BB0D5547E7803950DCADDBE4 /* opus.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = opus.xcframework; sourceTree = "<group>"; };
-		C03CAE6042E4C794CE2AF497C2C895A4 /* giflib.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = giflib.xcframework; sourceTree = "<group>"; };
-		CB76D427FBB4CFB3D5A4A9F7643A405B /* Pods-FFMPEGDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FFMPEGDemo.modulemap"; sourceTree = "<group>"; };
-		CE8D90F394EB3046898F31AE2DEB0FFA /* x264.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = x264.xcframework; sourceTree = "<group>"; };
-		D3ED2A48455EEE2DE6FEB960350F3439 /* vo-amrwbenc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = "vo-amrwbenc.xcframework"; sourceTree = "<group>"; };
-		D430A2893167CD7B1BFFBEE6583F5F02 /* mobile-ffmpeg-full-gpl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "mobile-ffmpeg-full-gpl.debug.xcconfig"; sourceTree = "<group>"; };
-		DF1A7DF18ECE7106DE77A4CC59963289 /* libvorbisfile.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvorbisfile.xcframework; sourceTree = "<group>"; };
+		A0ABBFF3241FBC0F70F9467C81ED3140 /* libass.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libass.xcframework; sourceTree = "<group>"; };
+		A317E27744FFA905B509C07B6537C062 /* kvazaar.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = kvazaar.xcframework; sourceTree = "<group>"; };
+		A4F25DE6D7D8658A7B7756EBC494DB9E /* mobileffmpeg.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = mobileffmpeg.xcframework; sourceTree = "<group>"; };
+		A4FB3064374B0A9FB088052E24F93F2E /* libaom.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libaom.xcframework; sourceTree = "<group>"; };
+		A96667FD8F1E272E5DC7411B892A3690 /* libavdevice.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavdevice.xcframework; sourceTree = "<group>"; };
+		AC0C6AC3AB5031F158C3A0E3DA48DF2F /* libvorbisfile.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvorbisfile.xcframework; sourceTree = "<group>"; };
+		B243B1E4F331A3B8BB3102006737AFE3 /* libavfilter.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavfilter.xcframework; sourceTree = "<group>"; };
+		BC0A9E02CFD6F693294F076098AF3F1E /* giflib.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = giflib.xcframework; sourceTree = "<group>"; };
+		BD171902FDF3A82BEB9B581D5DF3132A /* Chronometer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Chronometer.swift; path = SoundWave/Classes/Chronometer.swift; sourceTree = "<group>"; };
+		C71B12E9AEBFDA0ED24FEF49CA418AF8 /* Pods-FFMPEGDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FFMPEGDemo-umbrella.h"; sourceTree = "<group>"; };
+		C79863C24575CBE0F3C31FB048E19A30 /* freetype.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = freetype.xcframework; sourceTree = "<group>"; };
+		C9A79841753ADF8271B4045989D9D583 /* wavpack.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = wavpack.xcframework; sourceTree = "<group>"; };
+		CAA14C3E0D2A151FC534FED40E03543C /* Pods-FFMPEGDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FFMPEGDemo.release.xcconfig"; sourceTree = "<group>"; };
+		CF26AAD500BA1E2D91A665C85BDA17C7 /* libwebpdemux.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libwebpdemux.xcframework; sourceTree = "<group>"; };
+		E13610B209D96EE31E7F9217012378DE /* SoundWave-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SoundWave-prefix.pch"; sourceTree = "<group>"; };
 		E9E718A2C8819C0F059BE6184B6C17E0 /* Pods_FFMPEGDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FFMPEGDemo.framework; path = "Pods-FFMPEGDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBB2B5C0E0E99F758A5968321C83C5E7 /* mobileffmpeg.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = mobileffmpeg.xcframework; sourceTree = "<group>"; };
-		ECE4FEA62290D58284D59ED05B3AFB7B /* xvidcore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = xvidcore.xcframework; sourceTree = "<group>"; };
-		EE77465CF1A4A008EFA3672F6AE59C15 /* Pods-FFMPEGDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FFMPEGDemo-dummy.m"; sourceTree = "<group>"; };
-		F6BEDC1F2102C3421E6565B78BFEE7E8 /* libavformat.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavformat.xcframework; sourceTree = "<group>"; };
-		F9095B72D328F61FC55BABD644DB2FA6 /* libvorbisenc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libvorbisenc.xcframework; sourceTree = "<group>"; };
+		EABDF85717DAC1815ED29EFFCF66B641 /* libwebp.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libwebp.xcframework; sourceTree = "<group>"; };
+		EB990187E15821A1D1A0FD8286DAB5F0 /* libilbc.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libilbc.xcframework; sourceTree = "<group>"; };
+		EF0777E1F9C74481CE43F1EF854EF80A /* mobile-ffmpeg-full-gpl-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "mobile-ffmpeg-full-gpl-xcframeworks.sh"; sourceTree = "<group>"; };
+		F4FEF6064309E44B9F504588F6AFA8D6 /* SoundWave-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SoundWave-Info.plist"; sourceTree = "<group>"; };
+		F570477816E45CF20C9304375B078E08 /* libavutil.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libavutil.xcframework; sourceTree = "<group>"; };
+		F763D0E676DE72875933A8A616DF095F /* libwebpmux.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libwebpmux.xcframework; sourceTree = "<group>"; };
+		F930FE4C0A546FAD1C547F0934F2B790 /* Pods-FFMPEGDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FFMPEGDemo-frameworks.sh"; sourceTree = "<group>"; };
+		FF0B402F27E0F008713CAC4B1A6FDBBB /* libnettle.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = libnettle.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4D63C5E27B44C552FB5D190AEA8613CA /* Frameworks */ = {
+		3898A4678B18213325ED9AAEE1646D6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B50F092ECBC553D0A0515195F97BF7 /* Foundation.framework in Frameworks */,
+				723E915355725BF77E78E1A80AEA0223 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41469AF836CA688FAE59D050E820AB79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				760C938EA07889877E63E3A1071138A1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4BE730C68C3498DED6FFA498A058FF93 /* mobile-ffmpeg-full-gpl */ = {
+		04E9B5EEA7537EC94B057BF358C13BF0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E75BC447D1F1C256C2443DBF04E96DFA /* Frameworks */,
-				B53342432C24E82493EEBD988FB1F616 /* Support Files */,
+				5AB00098702CB5A6702EEF5ED11AC0F7 /* mobile-ffmpeg-full-gpl */,
+				54B47C0DB4213AD7EEE432E31A693B4C /* SoundWave */,
 			);
-			name = "mobile-ffmpeg-full-gpl";
-			path = "mobile-ffmpeg-full-gpl";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		55CFB7A661D45632AAA53522E9AC85F1 /* Targets Support Files */ = {
+		28C044E6BC6BD1DCF328E83EF74900E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AF3C2CC98D283A56BCC35C4487532F2D /* Pods-FFMPEGDemo */,
+				E9E718A2C8819C0F059BE6184B6C17E0 /* Pods_FFMPEGDemo.framework */,
+				843FFB1A5DEC64169D3AD840635DA0CC /* SoundWave.framework */,
 			);
-			name = "Targets Support Files";
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54B47C0DB4213AD7EEE432E31A693B4C /* SoundWave */ = {
+			isa = PBXGroup;
+			children = (
+				2700633DEDA2EA167DAA12B19DA92574 /* AudioVisualizationView.swift */,
+				23D84F12338B48A7087A243292187B69 /* AudioVisualizationView.xib */,
+				43F9E64D1369130273F61358DD831AB3 /* BaseNibView.swift */,
+				BD171902FDF3A82BEB9B581D5DF3132A /* Chronometer.swift */,
+				8C894180D9659788CC385C0CD17B4396 /* Support Files */,
+			);
+			name = SoundWave;
+			path = SoundWave;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -141,47 +189,65 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7A0E56B459898E5B010D6C11F78B72D4 /* Pods */ = {
+		5AB00098702CB5A6702EEF5ED11AC0F7 /* mobile-ffmpeg-full-gpl */ = {
 			isa = PBXGroup;
 			children = (
-				4BE730C68C3498DED6FFA498A058FF93 /* mobile-ffmpeg-full-gpl */,
+				FA0B661537685C4F562F40BBA568A0EC /* Frameworks */,
+				9E037B9A2C3E235927975D918CF28814 /* Support Files */,
 			);
-			name = Pods;
+			name = "mobile-ffmpeg-full-gpl";
+			path = "mobile-ffmpeg-full-gpl";
 			sourceTree = "<group>";
 		};
-		AF3C2CC98D283A56BCC35C4487532F2D /* Pods-FFMPEGDemo */ = {
+		7340623FBEE3A7BD13525BAD3A5F732D /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CB76D427FBB4CFB3D5A4A9F7643A405B /* Pods-FFMPEGDemo.modulemap */,
-				0F56639EE82A3F0D73F3400AD9C3C3DA /* Pods-FFMPEGDemo-acknowledgements.markdown */,
-				29F43D169A525E191A21D9E8D1C3FCB4 /* Pods-FFMPEGDemo-acknowledgements.plist */,
-				EE77465CF1A4A008EFA3672F6AE59C15 /* Pods-FFMPEGDemo-dummy.m */,
-				B04170C9C805BD3A276D94684384F468 /* Pods-FFMPEGDemo-Info.plist */,
-				8D602F322C7A3C865FBA07D8315F21F1 /* Pods-FFMPEGDemo-umbrella.h */,
-				AC9CB019D22F13E64C35400DA5F6137D /* Pods-FFMPEGDemo.debug.xcconfig */,
-				B8CEF7B8458D5C81C69CEBF1F7026D04 /* Pods-FFMPEGDemo.release.xcconfig */,
+				785E8D811C41E8C8A5728071CD9EC4BC /* Pods-FFMPEGDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		785E8D811C41E8C8A5728071CD9EC4BC /* Pods-FFMPEGDemo */ = {
+			isa = PBXGroup;
+			children = (
+				87B6F2DF9CF0277EAD9B010B5C25E653 /* Pods-FFMPEGDemo.modulemap */,
+				78A0E0B9C8D2E3778D0E215D30B0AAB4 /* Pods-FFMPEGDemo-acknowledgements.markdown */,
+				43A1F0349D049C9715E5DB4FDC7BE46E /* Pods-FFMPEGDemo-acknowledgements.plist */,
+				59AE5F89F752DBAD3E99FE14A49D968B /* Pods-FFMPEGDemo-dummy.m */,
+				F930FE4C0A546FAD1C547F0934F2B790 /* Pods-FFMPEGDemo-frameworks.sh */,
+				01B1A9A9CE2F3860BF2216BDC93D77B1 /* Pods-FFMPEGDemo-Info.plist */,
+				C71B12E9AEBFDA0ED24FEF49CA418AF8 /* Pods-FFMPEGDemo-umbrella.h */,
+				5290ADB7761ED83692F8EDE18D133AA8 /* Pods-FFMPEGDemo.debug.xcconfig */,
+				CAA14C3E0D2A151FC534FED40E03543C /* Pods-FFMPEGDemo.release.xcconfig */,
 			);
 			name = "Pods-FFMPEGDemo";
 			path = "Target Support Files/Pods-FFMPEGDemo";
 			sourceTree = "<group>";
 		};
-		B53342432C24E82493EEBD988FB1F616 /* Support Files */ = {
+		8C894180D9659788CC385C0CD17B4396 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				85DC57DEBE10DC6C264C84E61EAE1BEA /* mobile-ffmpeg-full-gpl-xcframeworks.sh */,
-				D430A2893167CD7B1BFFBEE6583F5F02 /* mobile-ffmpeg-full-gpl.debug.xcconfig */,
-				5BD8BF6B69FFED91E5ADA8788B4AA6CC /* mobile-ffmpeg-full-gpl.release.xcconfig */,
+				11A63B99F6845046104EAB8F9FA4128F /* SoundWave.modulemap */,
+				5E861EDBEFE31780C60B48B5C38CD979 /* SoundWave-dummy.m */,
+				F4FEF6064309E44B9F504588F6AFA8D6 /* SoundWave-Info.plist */,
+				E13610B209D96EE31E7F9217012378DE /* SoundWave-prefix.pch */,
+				0888E3DE720212FEA91DF23700DC986E /* SoundWave-umbrella.h */,
+				97989255EE0EDBCF3B040BE28BCF955D /* SoundWave.debug.xcconfig */,
+				59742CC3B878C32DB579EC793E91F63C /* SoundWave.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SoundWave";
+			sourceTree = "<group>";
+		};
+		9E037B9A2C3E235927975D918CF28814 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF0777E1F9C74481CE43F1EF854EF80A /* mobile-ffmpeg-full-gpl-xcframeworks.sh */,
+				27231EAEAB1426BB4E0BA24F38C39629 /* mobile-ffmpeg-full-gpl.debug.xcconfig */,
+				643BAFE9F680B891BE283841F7AFF64C /* mobile-ffmpeg-full-gpl.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/mobile-ffmpeg-full-gpl";
-			sourceTree = "<group>";
-		};
-		C8168FC142976865F77BF248DE3FBC58 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E9E718A2C8819C0F059BE6184B6C17E0 /* Pods_FFMPEGDemo.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -189,9 +255,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				7A0E56B459898E5B010D6C11F78B72D4 /* Pods */,
-				C8168FC142976865F77BF248DE3FBC58 /* Products */,
-				55CFB7A661D45632AAA53522E9AC85F1 /* Targets Support Files */,
+				04E9B5EEA7537EC94B057BF358C13BF0 /* Pods */,
+				28C044E6BC6BD1DCF328E83EF74900E1 /* Products */,
+				7340623FBEE3A7BD13525BAD3A5F732D /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,60 +269,60 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E75BC447D1F1C256C2443DBF04E96DFA /* Frameworks */ = {
+		FA0B661537685C4F562F40BBA568A0EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2212D8749E5B7FB5D5ED063E7FB259F9 /* expat.xcframework */,
-				97CCC31F09EC510A810FB4E5A38733D6 /* fontconfig.xcframework */,
-				5B26D3BFCEBACA6F24AF70C7B6C49FC3 /* freetype.xcframework */,
-				3D6DECBA1FEA5F5A1F33D4177623A642 /* fribidi.xcframework */,
-				C03CAE6042E4C794CE2AF497C2C895A4 /* giflib.xcframework */,
-				B3CE4E305F91D95657D5460B7C77A59E /* gmp.xcframework */,
-				80C36F613941F8E416F156639E56C435 /* gnutls.xcframework */,
-				8FB5EC7FD9D6325ADD39055DA85982E0 /* jpeg.xcframework */,
-				738D35C8AE953BFC46A9357737C65BA2 /* kvazaar.xcframework */,
-				5E28AF08E079D64D4962F08A27F7238F /* lame.xcframework */,
-				1F1ED68BCB8350DCDFA0B0D9347901AA /* libaom.xcframework */,
-				9B9170BA0BCEE84C9ED49281009EFB35 /* libass.xcframework */,
-				A5B0315B60363350CEF526BDFA23AFD6 /* libavcodec.xcframework */,
-				1ABE56E9141517675F5F97B026687C03 /* libavdevice.xcframework */,
-				042D7293F9DEF47C9A495FA2EBD81381 /* libavfilter.xcframework */,
-				F6BEDC1F2102C3421E6565B78BFEE7E8 /* libavformat.xcframework */,
-				6DC9087344E2C449D4BE5A211193B519 /* libavutil.xcframework */,
-				6E4773A29371E14C15B723D8296A842D /* libhogweed.xcframework */,
-				554E2412E40B9BDE12D6FFF64208DA88 /* libilbc.xcframework */,
-				9F4F4301A466BD6A125B9BC0BCDFE24F /* libnettle.xcframework */,
-				665DFC01FB376F26403D18C77A359A4A /* libogg.xcframework */,
-				A50DF76490C573A3E51FD0637EA47B0F /* libopencore-amrnb.xcframework */,
-				77192E166148D82D511CC6E59BE069C5 /* libpng.xcframework */,
-				7D7FD2653B02C222395039ECDCBC965F /* libsndfile.xcframework */,
-				B54CEB811395A97AD244EDCD654037C0 /* libswresample.xcframework */,
-				3357580B16E0F05DC983D854D3B30E7B /* libswscale.xcframework */,
-				910389C3AB26AA10BA2102EB0E5FBA2F /* libtheora.xcframework */,
-				A36A2CA0B59A50981BB0DF16525F9921 /* libtheoradec.xcframework */,
-				0CBD44D74EBC0510F677440CC7DA01CA /* libtheoraenc.xcframework */,
-				14503AFA64821A3BCFC6CE7E4B73FEC7 /* libvidstab.xcframework */,
-				09AB62C029361A9C85544751B81CA980 /* libvorbis.xcframework */,
-				F9095B72D328F61FC55BABD644DB2FA6 /* libvorbisenc.xcframework */,
-				DF1A7DF18ECE7106DE77A4CC59963289 /* libvorbisfile.xcframework */,
-				2500B9F474C8EF3B6779FAE7DD789BF4 /* libvpx.xcframework */,
-				989455138C50A8ECC8C16E820D3BFF6F /* libwebp.xcframework */,
-				7ECCFBD799C02F1801340DBDCF5BE473 /* libwebpdemux.xcframework */,
-				210CE4F9307069A46E54D2F4EA3CFF93 /* libwebpmux.xcframework */,
-				255412C7AC7B7B423BA3DB8CC0861781 /* libxml2.xcframework */,
-				EBB2B5C0E0E99F758A5968321C83C5E7 /* mobileffmpeg.xcframework */,
-				BCF6BE98BB0D5547E7803950DCADDBE4 /* opus.xcframework */,
-				9945808BAC1E0403E6A70B9AF121AB22 /* shine.xcframework */,
-				AE19DEB437F9008BD02BCEB2F131CE1A /* snappy.xcframework */,
-				5997BD761790C0EF94169CF282D1673A /* soxr.xcframework */,
-				912DB7678CA70306F7F961397E4A7787 /* speex.xcframework */,
-				010423755924E8F0B7AC06FA973ED815 /* tiff.xcframework */,
-				6FBDF38DD6482F30B8F7F2ADC8DFFD85 /* twolame.xcframework */,
-				D3ED2A48455EEE2DE6FEB960350F3439 /* vo-amrwbenc.xcframework */,
-				8DEDB75C29548DB1279D6C794180ABC6 /* wavpack.xcframework */,
-				CE8D90F394EB3046898F31AE2DEB0FFA /* x264.xcframework */,
-				8DCF02D82AB7D47A5435C93148C3B553 /* x265.xcframework */,
-				ECE4FEA62290D58284D59ED05B3AFB7B /* xvidcore.xcframework */,
+				7007E46F6B914086CCE00A784060C57F /* expat.xcframework */,
+				3787FDA284C11258AB2F79ABD9EDC73F /* fontconfig.xcframework */,
+				C79863C24575CBE0F3C31FB048E19A30 /* freetype.xcframework */,
+				4418AF2F8285C2831BE3D5FDA5052B00 /* fribidi.xcframework */,
+				BC0A9E02CFD6F693294F076098AF3F1E /* giflib.xcframework */,
+				27D22887F1213853B1E4BD295F3FD564 /* gmp.xcframework */,
+				2E2BE63AC285B9033B6AFBBBC1CC752F /* gnutls.xcframework */,
+				3AF6EBED39EB27E00D722C713BB74070 /* jpeg.xcframework */,
+				A317E27744FFA905B509C07B6537C062 /* kvazaar.xcframework */,
+				8A78EA38A77E0A131AFF6A6B0CC3A731 /* lame.xcframework */,
+				A4FB3064374B0A9FB088052E24F93F2E /* libaom.xcframework */,
+				A0ABBFF3241FBC0F70F9467C81ED3140 /* libass.xcframework */,
+				8680318E9FD5945D1F5A5397B45C6574 /* libavcodec.xcframework */,
+				A96667FD8F1E272E5DC7411B892A3690 /* libavdevice.xcframework */,
+				B243B1E4F331A3B8BB3102006737AFE3 /* libavfilter.xcframework */,
+				6BB420BCF561643C3A17284D0963EE1D /* libavformat.xcframework */,
+				F570477816E45CF20C9304375B078E08 /* libavutil.xcframework */,
+				7EE98CD278B90D36657D6039023CA9C8 /* libhogweed.xcframework */,
+				EB990187E15821A1D1A0FD8286DAB5F0 /* libilbc.xcframework */,
+				FF0B402F27E0F008713CAC4B1A6FDBBB /* libnettle.xcframework */,
+				1181CAFAF26FFFF51D3A873E46BAD2E9 /* libogg.xcframework */,
+				4F7266CBC9A489785AF7F0C5CA72F056 /* libopencore-amrnb.xcframework */,
+				1D7B50FD903B9E70686546BE6C00D307 /* libpng.xcframework */,
+				616DF3047EA8FC023D3662B929B33A3A /* libsndfile.xcframework */,
+				8D8024D4CA705EC79ABC14441345E03D /* libswresample.xcframework */,
+				870E36A412F3C7C076E9FBF346BC8B76 /* libswscale.xcframework */,
+				184303101FBA64C8862B2696BCF9E0EA /* libtheora.xcframework */,
+				4FFF80ADBD9E6339BD2C965E4C2EB6B3 /* libtheoradec.xcframework */,
+				3A6BEF0652F250C07BDAF0F8EEC7667C /* libtheoraenc.xcframework */,
+				1519FDBBC1B5D592225011364F65264B /* libvidstab.xcframework */,
+				80B2E5566747E5F0BCDEAF3AF46C1A3D /* libvorbis.xcframework */,
+				19C71C2ADD76207BD7A12FC462BC3E7A /* libvorbisenc.xcframework */,
+				AC0C6AC3AB5031F158C3A0E3DA48DF2F /* libvorbisfile.xcframework */,
+				8F538119F7FA29852B860D76ADE0B6D3 /* libvpx.xcframework */,
+				EABDF85717DAC1815ED29EFFCF66B641 /* libwebp.xcframework */,
+				CF26AAD500BA1E2D91A665C85BDA17C7 /* libwebpdemux.xcframework */,
+				F763D0E676DE72875933A8A616DF095F /* libwebpmux.xcframework */,
+				9AD9F738115B1A21EAFE4084C9BD691F /* libxml2.xcframework */,
+				A4F25DE6D7D8658A7B7756EBC494DB9E /* mobileffmpeg.xcframework */,
+				40A6A27EBA75F38D359A35DD64BB39CB /* opus.xcframework */,
+				88EE54B3197A6970E3CD0273C991D0CD /* shine.xcframework */,
+				025C15F0A7983E6DAD5C7FE5C4775851 /* snappy.xcframework */,
+				4F7093BA3684AB22064F21CFBEDC2E82 /* soxr.xcframework */,
+				7241A27232318D38334530464F4DE365 /* speex.xcframework */,
+				2DC77445DFE636FAC410285CE3087B1A /* tiff.xcframework */,
+				3D5B94B61AD9F28E59DC522FF62F9A07 /* twolame.xcframework */,
+				5E36417D021E6CD9A104DAE74E493D3E /* vo-amrwbenc.xcframework */,
+				C9A79841753ADF8271B4045989D9D583 /* wavpack.xcframework */,
+				82381209283259A8D29DE55CB2522AA1 /* x264.xcframework */,
+				26E25050CED8E93AB08D5CAE68DE40BB /* x265.xcframework */,
+				75003DA78D9DEEE09E998A180963C921 /* xvidcore.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -264,11 +330,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6FCAA8A165121A0F4639B97749021769 /* Headers */ = {
+		3CEE35FCAC73030E962D93D55AC77497 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				726AC508A59A9C41DAA8BA6A690630EA /* Pods-FFMPEGDemo-umbrella.h in Headers */,
+				CA6D95D21E2DF2FE16811E5A472434C3 /* SoundWave-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C2E19DDE7A15BD63BE0B64837E7A893 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C254423901322B7F041476B9996E815 /* Pods-FFMPEGDemo-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,21 +351,40 @@
 /* Begin PBXNativeTarget section */
 		5FD037BD73ABB97AD0201417E9B91B94 /* Pods-FFMPEGDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8DAF8244075898CC4B77551465FEAFD /* Build configuration list for PBXNativeTarget "Pods-FFMPEGDemo" */;
+			buildConfigurationList = 03DF14DA4CFECC9C150212DBE6DCC778 /* Build configuration list for PBXNativeTarget "Pods-FFMPEGDemo" */;
 			buildPhases = (
-				6FCAA8A165121A0F4639B97749021769 /* Headers */,
-				F0C4C18E8E091674DF64AF14220765B5 /* Sources */,
-				4D63C5E27B44C552FB5D190AEA8613CA /* Frameworks */,
-				8F71B0E93DE6D48B4BF4ECA693300461 /* Resources */,
+				8C2E19DDE7A15BD63BE0B64837E7A893 /* Headers */,
+				DF0222E7EF0F5B0261B947C7C6786441 /* Sources */,
+				41469AF836CA688FAE59D050E820AB79 /* Frameworks */,
+				7F9F35387C0F6C45F0ED94BB3E854B1B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2ACB4877E8F88D3EE40FD06FF594325F /* PBXTargetDependency */,
+				AEA8CE2CEAD9D1495B8356468DBB9F36 /* PBXTargetDependency */,
+				0052B7466E0EB4177A544559BB4016CE /* PBXTargetDependency */,
 			);
 			name = "Pods-FFMPEGDemo";
 			productName = "Pods-FFMPEGDemo";
 			productReference = E9E718A2C8819C0F059BE6184B6C17E0 /* Pods_FFMPEGDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F0987D2BA445E423F5BB22D4899D2E22 /* SoundWave */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E180026729C8761994638CD1367E4B37 /* Build configuration list for PBXNativeTarget "SoundWave" */;
+			buildPhases = (
+				3CEE35FCAC73030E962D93D55AC77497 /* Headers */,
+				45D327A15410E0667B0C7874276336D3 /* Sources */,
+				3898A4678B18213325ED9AAEE1646D6C /* Frameworks */,
+				C441D88F5CB98C122A1947E38B5DDC65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundWave;
+			productName = SoundWave;
+			productReference = 843FFB1A5DEC64169D3AD840635DA0CC /* SoundWave.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -312,18 +405,26 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = C8168FC142976865F77BF248DE3FBC58 /* Products */;
+			productRefGroup = 28C044E6BC6BD1DCF328E83EF74900E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				9518866687192F3882112448B34BCCC5 /* mobile-ffmpeg-full-gpl */,
 				5FD037BD73ABB97AD0201417E9B91B94 /* Pods-FFMPEGDemo */,
+				F0987D2BA445E423F5BB22D4899D2E22 /* SoundWave */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8F71B0E93DE6D48B4BF4ECA693300461 /* Resources */ = {
+		7F9F35387C0F6C45F0ED94BB3E854B1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C441D88F5CB98C122A1947E38B5DDC65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,22 +454,40 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F0C4C18E8E091674DF64AF14220765B5 /* Sources */ = {
+		45D327A15410E0667B0C7874276336D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F2C7ADD1D8C299DBB078E755AB8C20 /* Pods-FFMPEGDemo-dummy.m in Sources */,
+				25932891993D663085D9E559A87B2B9F /* AudioVisualizationView.swift in Sources */,
+				74477FD04FF4A0C89FE017BB57F83093 /* AudioVisualizationView.xib in Sources */,
+				E48C7231C212D83CE25A2990D0318C88 /* BaseNibView.swift in Sources */,
+				44EFF6FB94B5404CE0B3311CE62C8449 /* Chronometer.swift in Sources */,
+				378FB83D16D1775A687B3E3F10C6EEA4 /* SoundWave-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF0222E7EF0F5B0261B947C7C6786441 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39FC3CB41EDC97C8B13CF279BBE4646B /* Pods-FFMPEGDemo-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2ACB4877E8F88D3EE40FD06FF594325F /* PBXTargetDependency */ = {
+		0052B7466E0EB4177A544559BB4016CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "mobile-ffmpeg-full-gpl";
 			target = 9518866687192F3882112448B34BCCC5 /* mobile-ffmpeg-full-gpl */;
-			targetProxy = 41C8D8A3E8BD7721D719C1E325D65A8F /* PBXContainerItemProxy */;
+			targetProxy = 799CC677CA6FBD5564E1B8B5C4D81108 /* PBXContainerItemProxy */;
+		};
+		AEA8CE2CEAD9D1495B8356468DBB9F36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SoundWave;
+			target = F0987D2BA445E423F5BB22D4899D2E22 /* SoundWave */;
+			targetProxy = 29C3060D36AF56DDE35EBFDA66D26559 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -441,7 +560,7 @@
 		};
 		22F556D0019A53221099614930CD705D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D430A2893167CD7B1BFFBEE6583F5F02 /* mobile-ffmpeg-full-gpl.debug.xcconfig */;
+			baseConfigurationReference = 27231EAEAB1426BB4E0BA24F38C39629 /* mobile-ffmpeg-full-gpl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -453,6 +572,43 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8E8242CA816B6CFB12BE6DD69BE08525 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5290ADB7761ED83692F8EDE18D133AA8 /* Pods-FFMPEGDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -518,9 +674,45 @@
 			};
 			name = Release;
 		};
+		9ED5EE2E3063A4493FDD57AD85105D32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59742CC3B878C32DB579EC793E91F63C /* SoundWave.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SoundWave/SoundWave-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SoundWave/SoundWave-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SoundWave/SoundWave.modulemap";
+				PRODUCT_MODULE_NAME = SoundWave;
+				PRODUCT_NAME = SoundWave;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		A3650B0D219A3BECBCF6A867474F1EF3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BD8BF6B69FFED91E5ADA8788B4AA6CC /* mobile-ffmpeg-full-gpl.release.xcconfig */;
+			baseConfigurationReference = 643BAFE9F680B891BE283841F7AFF64C /* mobile-ffmpeg-full-gpl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -536,9 +728,9 @@
 			};
 			name = Release;
 		};
-		A3BDE9A4DFFAE957C510CB55E2A1F0AE /* Release */ = {
+		A535B41ADFE22D0D14D36615ADC3E335 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8CEF7B8458D5C81C69CEBF1F7026D04 /* Pods-FFMPEGDemo.release.xcconfig */;
+			baseConfigurationReference = CAA14C3E0D2A151FC534FED40E03543C /* Pods-FFMPEGDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -574,11 +766,10 @@
 			};
 			name = Release;
 		};
-		DA6E35AD9D5E37C74EA40ADF69392B11 /* Debug */ = {
+		A993927C5552DF400683E374457383B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC9CB019D22F13E64C35400DA5F6137D /* Pods-FFMPEGDemo.debug.xcconfig */;
+			baseConfigurationReference = 97989255EE0EDBCF3B040BE28BCF955D /* SoundWave.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -588,23 +779,22 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SoundWave/SoundWave-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SoundWave/SoundWave-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/SoundWave/SoundWave.modulemap";
+				PRODUCT_MODULE_NAME = SoundWave;
+				PRODUCT_NAME = SoundWave;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -614,6 +804,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		03DF14DA4CFECC9C150212DBE6DCC778 /* Build configuration list for PBXNativeTarget "Pods-FFMPEGDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E8242CA816B6CFB12BE6DD69BE08525 /* Debug */,
+				A535B41ADFE22D0D14D36615ADC3E335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -632,11 +831,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8DAF8244075898CC4B77551465FEAFD /* Build configuration list for PBXNativeTarget "Pods-FFMPEGDemo" */ = {
+		E180026729C8761994638CD1367E4B37 /* Build configuration list for PBXNativeTarget "SoundWave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DA6E35AD9D5E37C74EA40ADF69392B11 /* Debug */,
-				A3BDE9A4DFFAE957C510CB55E2A1F0AE /* Release */,
+				A993927C5552DF400683E374457383B2 /* Debug */,
+				9ED5EE2E3063A4493FDD57AD85105D32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

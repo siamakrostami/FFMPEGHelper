@@ -40,20 +40,35 @@ class ConverterViewModel : NSObject{
 extension ConverterViewModel{
     
     //MARK:- Convert Audio From Input URL
-    func convertAudioFrom(_ url : URL , with bitrate : bitrate){
-        self.createOutputPath(from: url)
+    func convertAudioFrom(url : URL , quality : bitrate){
+        self.createAudioOutputPath(from: url)
         self.calculateTotalTime(url: url)
         guard let path = outputPath else{return}
         let command = "-i \(url) -acodec libmp3lame -ab \(bitrate.rawValue)k \(path)"
         MobileFFmpegConfig.setLogDelegate(self)
         MobileFFmpegConfig.setStatisticsDelegate(self)
-        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .background)) as Int32?{
+        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
             debugPrint("converter status code :\(converter)")
         }
     }
+    func convertVideoFrom(url : URL){
+        self.createVideoOutputPath(from: url)
+        self.calculateTotalTime(url: url)
+        guard let path = outputPath else{return}
+        let command = "-i \(url) -c:v libx264 -crf 23 \(path)"
+        MobileFFmpegConfig.setLogDelegate(self)
+        MobileFFmpegConfig.setStatisticsDelegate(self)
+        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
+            debugPrint("converter status code :\(converter)")
+        }
+        
+    }
+    func cancelConvertProgress(){
+        MobileFFmpeg.cancel()
+    }
     
     //MARK:- Create Output Path For Converted Audio
-    func createOutputPath(from url : URL){
+    func createAudioOutputPath(from url : URL){
         let fileMgr = FileManager.default
         let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
         let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: " ", with: "")).mp3")
@@ -61,9 +76,18 @@ extension ConverterViewModel{
         self.outputPath = filePath
     }
     
+    func createVideoOutputPath(from url : URL){
+        let fileMgr = FileManager.default
+        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
+        let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: " ", with: "")).mp4")
+        self.checkFileExistance(in: filePath)
+        self.outputPath = filePath
+        
+    }
+    
     //MARK:- Check File Existance
     func checkFileExistance(in url : URL){
-        if fileManager.fileExists(atPath: url.path){
+        if FileManager.default.fileExists(atPath: url.path){
             do{
                 try fileManager.removeItem(at: url)
             }catch{
@@ -76,8 +100,22 @@ extension ConverterViewModel{
     //MARK:- Calculate Input Audio File's Duration
     fileprivate func calculateTotalTime(url : URL?){
         guard let newUrl = url else{return}
-        let assets = AVAsset(url: newUrl)
-        self.totalTime = assets.duration.seconds
+        let assets = AVURLAsset(url: newUrl)
+        let option = ["duration"]
+        assets.loadValuesAsynchronously(forKeys: option) {
+            var error : NSError? = nil
+            let status = assets.statusOfValue(forKey: "duration", error: &error)
+            switch status{
+            case .loaded:
+                debugPrint(assets.duration)
+                self.totalTime = assets.duration.seconds
+                break
+            default:
+                debugPrint(assets.duration)
+                break
+            }
+        }
+
     }
     
 }
