@@ -50,6 +50,7 @@ extension ViewController{
         let url = Bundle.main.url(forResource: "Your_Media_File_Name", withExtension: "Your_Media_File_Extension")
         guard let inputUrl = url else{return}
         self.convertViewModel.convertAudioFrom(url: inputUrl, quality: .low)
+        self.convertViewModel.convertVideoFrom(url: inputUrl)
     }
     
     
