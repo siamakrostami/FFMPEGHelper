@@ -4,7 +4,7 @@ Convert audio and video files using ffmpeg in swift
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To see the example project, clone the repo and run `pod install`.
 
 ## Usage
 
@@ -17,10 +17,10 @@ var converterViewModel : ConverterViewModel!
 
 ```ruby
 
-  fileprivate func initData(){
+ fileprivate func initData(){
         self.convertViewModel = ConverterViewModel()
         self.convertViewModel.delegate = self
-    }
+  }
     
 ```
 
