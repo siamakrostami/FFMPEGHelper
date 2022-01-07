@@ -20,21 +20,6 @@ class ViewController: UIViewController {
         initData()
         // Do any additional setup after loading the view.
     }
-    
-    //MARK:- Open FilePicker For Select Audio Item
-    //    fileprivate func openFilePicker(){
-    //        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.audio])
-    //        documentPicker.delegate = self
-    //        if #available(iOS 11.0, *) {
-    //            documentPicker.allowsMultipleSelection = false
-    //        }
-    //        self.present(documentPicker, animated: true, completion: nil)
-    //    }
-    //MARK:- Start Converting Audio From Selected File
-    //    fileprivate func ConvertAudioFromPicker(url : URL){
-    //        self.convertViewModel.convertAudioFrom(url, with: .medium)
-    //    }
-    
 }
 
 extension ViewController{
@@ -47,16 +32,23 @@ extension ViewController{
     
     //MARK:- Convert Local File From Main Bundle
     func ConvertLocalFile(){
-        let url = Bundle.main.url(forResource: "Your_Media_File_Name", withExtension: "Your_Media_File_Extension")
-        guard let inputUrl = url else{return}
-        self.convertViewModel.convertAudioFrom(url: inputUrl, quality: .low)
-        self.convertViewModel.convertVideoFrom(url: inputUrl)
+       // let url = Bundle.main.url(forResource: "test", withExtension: "mp3")
+       // guard let inputUrl = url else{return}
+        //https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8
+   // https://1307889028.vod2.myqcloud.com/4985057avodger1307889028/995c8f26387702294028133240/kERQdXwS1z8A.mp4
+    //https://api.mp4.to/static/downloads/99e4537e67a540769/bd44dc72-b38b-49ea-9d04-80d0dd84a8aa.m3u8
+        guard let url = URL(string: "https://1307889028.vod2.myqcloud.com/8649c42fvodhk1307889028/2b97f390387702294030708591/lLwiHBAJlRMA.mp4") else {return}
+        guard let image = URL(string: "https://prod.cloud.rockstargames.com/crews/sc/8985/20777580/publish/emblem/emblem_256.png") else {return}
+        self.convertViewModel.addWatermarkToVideo(video: url, watermark: image)
+        //self.convertViewModel.addWatermarkToVideo(video: url, watermark: image)
+       // self.convertViewModel.convertVideoFrom(url: inputUrl)
     }
     
     
     //MARK:- Open AVPlayerController for playing converted audio
     fileprivate func openAudioPlayer(){
         guard let fileUrl = self.convertViewModel.outputPath else{return}
+        debugPrint(fileUrl)
         DispatchQueue.main.async {
             let player = AVPlayer(url: fileUrl)
             let pc = AVPlayerViewController()
@@ -96,7 +88,14 @@ extension ViewController : ConvertProgressProtocols{
     func ConvertStatus(status: Int32) {
         debugPrint("status : \(status)")
         if status == RETURN_CODE_SUCCESS{
-            openAudioPlayer()
+            if convertViewModel.isConvert{
+                guard let image = URL(string: "https://prod.cloud.rockstargames.com/crews/sc/8985/20777580/publish/emblem/emblem_256.png") else {return}
+                guard let path = self.convertViewModel.tempOutputPath else {return}
+                self.convertViewModel.addWatermarkToVideo(video: path, watermark: image)
+            }else{
+                self.openAudioPlayer()
+            }
+
         }
     }
     /// Converting Log
@@ -106,24 +105,4 @@ extension ViewController : ConvertProgressProtocols{
     
 }
 
-//MARK:- UIDocumentPickerDelegate for selected item from files
-
-//extension ViewController : UIDocumentPickerDelegate{
-//    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-//        guard  let url = urls.first else { return }
-//        defer {
-//            DispatchQueue.main.async {
-//                url.stopAccessingSecurityScopedResource()
-//            }
-//        }
-//        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//        let filePath = documentDirectory.appendingPathComponent("\(urls.first!.lastPathComponent.replacingOccurrences(of: " ", with: "")).\(urls.first!.pathExtension)")
-//        do {
-//            try FileManager.default.copyItem(at: urls.first!.standardizedFileURL, to: filePath)
-//        } catch {
-//            print(error)
-//        }
-//        self.ConvertAudioFromPicker(url: filePath)
-//    }
-//}
 

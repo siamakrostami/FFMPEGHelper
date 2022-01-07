@@ -34,7 +34,9 @@ class ConverterViewModel : NSObject{
     var delegate : ConvertProgressProtocols!
     let fileManager = FileManager.default
     var outputPath : URL?
+    var tempOutputPath : URL?
     var totalTime : Double?
+    var isConvert = true
 }
 
 extension ConverterViewModel{
@@ -44,13 +46,54 @@ extension ConverterViewModel{
         self.createAudioOutputPath(from: url)
         self.calculateTotalTime(url: url)
         guard let path = outputPath else{return}
-        let command = "-i \(url) -acodec libmp3lame -ab \(bitrate.rawValue)k \(path)"
+        let command = "-i \(url) -acodec libmp3lame -ab \(quality.rawValue)k \(path)"
         MobileFFmpegConfig.setLogDelegate(self)
         MobileFFmpegConfig.setStatisticsDelegate(self)
         if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
             debugPrint("converter status code :\(converter)")
         }
     }
+    
+    func convertHLStoMp4(url : URL){
+        self.createTempOutputPathForHLS(from: url)
+        self.calculateTotalTime(url: url)
+        guard let path = self.tempOutputPath else{return}
+        let command = "-i \(url) -codec:v libx264 -preset ultrafast \(path)"
+        MobileFFmpegConfig.setLogDelegate(self)
+        MobileFFmpegConfig.setStatisticsDelegate(self)
+        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
+            debugPrint("converter status code :\(converter)")
+        }
+    }
+    
+//    func addWatermarkToHLS(hls url : URL , watermark : URL){
+//        self.createVideoOutputPath(from: url)
+//        self.calculateTotalTime(url: url)
+//        guard let path = outputPath else{return}
+//       // -codec:v libx264 -preset ultrafast -filter_complex overlay
+//       // -i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") -c:v libx264 -crf 23 \(path)
+//        let command = "-i \(url) -codec:v libx264 -preset ultrafast \(path)"
+//        MobileFFmpegConfig.setLogDelegate(self)
+//        MobileFFmpegConfig.setStatisticsDelegate(self)
+//        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
+//            debugPrint("converter status code :\(converter)")
+//        }
+//    }
+    
+    func addWatermarkToVideo(video url : URL , watermark : URL){
+        self.isConvert = false
+        self.createVideoOutputPath(from: url)
+        self.calculateTotalTime(url: url)
+        guard let path = outputPath else{return}
+        let command = "-i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") \(path)"
+        MobileFFmpegConfig.setLogDelegate(self)
+        MobileFFmpegConfig.setStatisticsDelegate(self)
+        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
+            debugPrint("converter status code :\(converter)")
+        }
+        
+    }
+    
     func convertVideoFrom(url : URL){
         self.createVideoOutputPath(from: url)
         self.calculateTotalTime(url: url)
@@ -82,8 +125,16 @@ extension ConverterViewModel{
         let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: " ", with: "")).mp4")
         self.checkFileExistance(in: filePath)
         self.outputPath = filePath
-        
     }
+    
+    func createTempOutputPathForHLS(from url : URL){
+        let fileMgr = FileManager.default
+        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
+        let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: ".m3u8", with: "")).mp4")
+        self.checkFileExistance(in: filePath)
+        self.tempOutputPath = filePath
+    }
+
     
     //MARK:- Check File Existance
     func checkFileExistance(in url : URL){
