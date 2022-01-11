@@ -14,6 +14,7 @@
 		0129113725BEF04600AD91E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0129113625BEF04600AD91E4 /* Assets.xcassets */; };
 		0129113A25BEF04600AD91E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0129113825BEF04600AD91E4 /* LaunchScreen.storyboard */; };
 		0147473A25F4EC5D0084574D /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147473925F4EC5D0084574D /* ConverterViewModel.swift */; };
+		0162D36F278DB60C0047BFAF /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0162D36E278DB60C0047BFAF /* test.mp4 */; };
 		0A6A0FD672C230DBDDD8875D /* Pods_FFMPEGDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA385B46B68EFEF91129FF7 /* Pods_FFMPEGDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		0129113B25BEF04600AD91E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0147473425F4C6BA0084574D /* FFMPEGDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFMPEGDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0147473925F4EC5D0084574D /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
+		0162D36E278DB60C0047BFAF /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		7F999049DE2780FEBC834D27 /* Pods-FFMPEGDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFMPEGDemo.release.xcconfig"; path = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo.release.xcconfig"; sourceTree = "<group>"; };
 		811C8DA2DB4FA2F986BD08F6 /* Pods-FFMPEGDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFMPEGDemo.debug.xcconfig"; path = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA385B46B68EFEF91129FF7 /* Pods_FFMPEGDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FFMPEGDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				0147474525F513260084574D /* StoryBoards */,
 				0129112D25BEF04500AD91E4 /* AppDelegate.swift */,
 				0129112F25BEF04500AD91E4 /* SceneDelegate.swift */,
+				0162D36E278DB60C0047BFAF /* test.mp4 */,
 				0129113625BEF04600AD91E4 /* Assets.xcassets */,
 				0129113B25BEF04600AD91E4 /* Info.plist */,
 			);
@@ -190,6 +193,7 @@
 				0129113A25BEF04600AD91E4 /* LaunchScreen.storyboard in Resources */,
 				0129113725BEF04600AD91E4 /* Assets.xcassets in Resources */,
 				0129113525BEF04500AD91E4 /* Main.storyboard in Resources */,
+				0162D36F278DB60C0047BFAF /* test.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

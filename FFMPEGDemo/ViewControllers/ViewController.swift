@@ -32,16 +32,33 @@ extension ViewController{
     
     //MARK:- Convert Local File From Main Bundle
     func ConvertLocalFile(){
-       // let url = Bundle.main.url(forResource: "test", withExtension: "mp3")
-       // guard let inputUrl = url else{return}
+        let url = Bundle.main.url(forResource: "test", withExtension: "mp4")
+        guard let inputUrl = url else{return}
         //https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8
    // https://1307889028.vod2.myqcloud.com/4985057avodger1307889028/995c8f26387702294028133240/kERQdXwS1z8A.mp4
     //https://api.mp4.to/static/downloads/99e4537e67a540769/bd44dc72-b38b-49ea-9d04-80d0dd84a8aa.m3u8
-        guard let url = URL(string: "https://1307889028.vod2.myqcloud.com/8649c42fvodhk1307889028/2b97f390387702294030708591/lLwiHBAJlRMA.mp4") else {return}
+   // https://1307889028.vod2.myqcloud.com/8649c42fvodhk1307889028/2b97f390387702294030708591/lLwiHBAJlRMA.mp4
+        
+//        guard let url = URL(string: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8") else {return}
         guard let image = URL(string: "https://prod.cloud.rockstargames.com/crews/sc/8985/20777580/publish/emblem/emblem_256.png") else {return}
-        self.convertViewModel.addWatermarkToVideo(video: url, watermark: image)
+        //self.convertViewModel.convertHLStoMp4(url: url)
+        self.convertViewModel.addWatermarkToVideo(video: inputUrl, watermark: image)
+       // self.convertViewModel.addWatermarkToVideo(video: url, watermark: image)
         //self.convertViewModel.addWatermarkToVideo(video: url, watermark: image)
        // self.convertViewModel.convertVideoFrom(url: inputUrl)
+    }
+    
+    fileprivate func openShareSheet(url : URL){
+        DispatchQueue.main.async {
+            let excluded = [UIActivity.ActivityType.addToReadingList
+                            ,UIActivity.ActivityType.assignToContact
+                            ,UIActivity.ActivityType.markupAsPDF
+                            ,UIActivity.ActivityType.openInIBooks
+                            ,UIActivity.ActivityType.print]
+            let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            activityController.excludedActivityTypes = excluded
+            self.present(activityController, animated: true, completion: nil)
+        }
     }
     
     
@@ -93,7 +110,9 @@ extension ViewController : ConvertProgressProtocols{
                 guard let path = self.convertViewModel.tempOutputPath else {return}
                 self.convertViewModel.addWatermarkToVideo(video: path, watermark: image)
             }else{
-                self.openAudioPlayer()
+                guard let path = self.convertViewModel.outputPath else {return}
+                openShareSheet(url: path)
+                //self.openAudioPlayer()
             }
 
         }

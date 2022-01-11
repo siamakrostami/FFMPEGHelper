@@ -85,7 +85,7 @@ extension ConverterViewModel{
         self.createVideoOutputPath(from: url)
         self.calculateTotalTime(url: url)
         guard let path = outputPath else{return}
-        let command = "-i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") \(path)"
+        let command = "-i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") -threads 0 \(path)"
         MobileFFmpegConfig.setLogDelegate(self)
         MobileFFmpegConfig.setStatisticsDelegate(self)
         if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
