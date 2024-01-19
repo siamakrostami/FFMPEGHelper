@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010F82212B5AE123005A97EB /* libavcodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F82192B5AE122005A97EB /* libavcodec.xcframework */; };
+		010F82222B5AE123005A97EB /* libavdevice.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F821A2B5AE122005A97EB /* libavdevice.xcframework */; };
+		010F82232B5AE123005A97EB /* libavutil.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F821B2B5AE122005A97EB /* libavutil.xcframework */; };
+		010F82242B5AE123005A97EB /* ffmpegkit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F821C2B5AE122005A97EB /* ffmpegkit.xcframework */; };
+		010F82252B5AE123005A97EB /* libavformat.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F821D2B5AE122005A97EB /* libavformat.xcframework */; };
+		010F82262B5AE123005A97EB /* libavfilter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F821E2B5AE123005A97EB /* libavfilter.xcframework */; };
+		010F82272B5AE123005A97EB /* libswscale.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F821F2B5AE123005A97EB /* libswscale.xcframework */; };
+		010F82282B5AE123005A97EB /* libswresample.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010F82202B5AE123005A97EB /* libswresample.xcframework */; };
 		0129112E25BEF04500AD91E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129112D25BEF04500AD91E4 /* AppDelegate.swift */; };
 		0129113025BEF04500AD91E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129112F25BEF04500AD91E4 /* SceneDelegate.swift */; };
 		0129113225BEF04500AD91E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0129113125BEF04500AD91E4 /* ViewController.swift */; };
@@ -15,10 +23,30 @@
 		0129113A25BEF04600AD91E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0129113825BEF04600AD91E4 /* LaunchScreen.storyboard */; };
 		0147473A25F4EC5D0084574D /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0147473925F4EC5D0084574D /* ConverterViewModel.swift */; };
 		0162D36F278DB60C0047BFAF /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0162D36E278DB60C0047BFAF /* test.mp4 */; };
-		0A6A0FD672C230DBDDD8875D /* Pods_FFMPEGDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA385B46B68EFEF91129FF7 /* Pods_FFMPEGDemo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		01C48B0C2B544318003B49B3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		010F82192B5AE122005A97EB /* libavcodec.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavcodec.xcframework; sourceTree = "<group>"; };
+		010F821A2B5AE122005A97EB /* libavdevice.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavdevice.xcframework; sourceTree = "<group>"; };
+		010F821B2B5AE122005A97EB /* libavutil.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavutil.xcframework; sourceTree = "<group>"; };
+		010F821C2B5AE122005A97EB /* ffmpegkit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ffmpegkit.xcframework; sourceTree = "<group>"; };
+		010F821D2B5AE122005A97EB /* libavformat.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavformat.xcframework; sourceTree = "<group>"; };
+		010F821E2B5AE123005A97EB /* libavfilter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavfilter.xcframework; sourceTree = "<group>"; };
+		010F821F2B5AE123005A97EB /* libswscale.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libswscale.xcframework; sourceTree = "<group>"; };
+		010F82202B5AE123005A97EB /* libswresample.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libswresample.xcframework; sourceTree = "<group>"; };
 		0129112A25BEF04500AD91E4 /* FFMPEGDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFMPEGDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0129112D25BEF04500AD91E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0129112F25BEF04500AD91E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,9 +58,6 @@
 		0147473425F4C6BA0084574D /* FFMPEGDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFMPEGDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0147473925F4EC5D0084574D /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
 		0162D36E278DB60C0047BFAF /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
-		7F999049DE2780FEBC834D27 /* Pods-FFMPEGDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFMPEGDemo.release.xcconfig"; path = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo.release.xcconfig"; sourceTree = "<group>"; };
-		811C8DA2DB4FA2F986BD08F6 /* Pods-FFMPEGDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFMPEGDemo.debug.xcconfig"; path = "Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		DFA385B46B68EFEF91129FF7 /* Pods_FFMPEGDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FFMPEGDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +65,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6A0FD672C230DBDDD8875D /* Pods_FFMPEGDemo.framework in Frameworks */,
+				010F82262B5AE123005A97EB /* libavfilter.xcframework in Frameworks */,
+				010F82222B5AE123005A97EB /* libavdevice.xcframework in Frameworks */,
+				010F82282B5AE123005A97EB /* libswresample.xcframework in Frameworks */,
+				010F82242B5AE123005A97EB /* ffmpegkit.xcframework in Frameworks */,
+				010F82232B5AE123005A97EB /* libavutil.xcframework in Frameworks */,
+				010F82212B5AE123005A97EB /* libavcodec.xcframework in Frameworks */,
+				010F82272B5AE123005A97EB /* libswscale.xcframework in Frameworks */,
+				010F82252B5AE123005A97EB /* libavformat.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +84,6 @@
 			children = (
 				0129112C25BEF04500AD91E4 /* FFMPEGDemo */,
 				0129112B25BEF04500AD91E4 /* Products */,
-				9F0E2B86919C41C142B5BEB1 /* Pods */,
 				86E0E8D005319CCF84926032 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -117,18 +148,16 @@
 		86E0E8D005319CCF84926032 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DFA385B46B68EFEF91129FF7 /* Pods_FFMPEGDemo.framework */,
+				010F821C2B5AE122005A97EB /* ffmpegkit.xcframework */,
+				010F82192B5AE122005A97EB /* libavcodec.xcframework */,
+				010F821A2B5AE122005A97EB /* libavdevice.xcframework */,
+				010F821E2B5AE123005A97EB /* libavfilter.xcframework */,
+				010F821D2B5AE122005A97EB /* libavformat.xcframework */,
+				010F821B2B5AE122005A97EB /* libavutil.xcframework */,
+				010F82202B5AE123005A97EB /* libswresample.xcframework */,
+				010F821F2B5AE123005A97EB /* libswscale.xcframework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9F0E2B86919C41C142B5BEB1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				811C8DA2DB4FA2F986BD08F6 /* Pods-FFMPEGDemo.debug.xcconfig */,
-				7F999049DE2780FEBC834D27 /* Pods-FFMPEGDemo.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,11 +167,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0129113E25BEF04600AD91E4 /* Build configuration list for PBXNativeTarget "FFMPEGDemo" */;
 			buildPhases = (
-				E8AD1E4518A50DBD4FC26DB4 /* [CP] Check Pods Manifest.lock */,
 				0129112625BEF04500AD91E4 /* Sources */,
 				0129112725BEF04500AD91E4 /* Frameworks */,
 				0129112825BEF04500AD91E4 /* Resources */,
-				6DACEA7FC814D029ED164253 /* [CP] Embed Pods Frameworks */,
+				01C48B0C2B544318003B49B3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,8 +187,9 @@
 		0129112225BEF04500AD91E4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					0129112925BEF04500AD91E4 = {
 						CreatedOnToolsVersion = 12.3;
@@ -198,48 +227,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6DACEA7FC814D029ED164253 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FFMPEGDemo/Pods-FFMPEGDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E8AD1E4518A50DBD4FC26DB4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FFMPEGDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0129112625BEF04500AD91E4 /* Sources */ = {
@@ -279,6 +266,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -312,6 +300,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -340,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -373,6 +363,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -393,7 +384,6 @@
 		};
 		0129113F25BEF04600AD91E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 811C8DA2DB4FA2F986BD08F6 /* Pods-FFMPEGDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -413,7 +403,6 @@
 		};
 		0129114025BEF04600AD91E4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F999049DE2780FEBC834D27 /* Pods-FFMPEGDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

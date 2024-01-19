@@ -7,7 +7,8 @@
 
 #ifndef FFMPEGDemo_Bridging_Header_h
 #define FFMPEGDemo_Bridging_Header_h
-#import <mobileffmpeg/MobileFFmpeg.h>
-#import <mobileffmpeg/MobileFFmpegConfig.h>
+#import <ffmpegkit/FFmpegKit.h>
+#import <ffmpegkit/FFmpegKitConfig.h>
+#import <ffmpegkit/FFprobeKit.h>
 
 #endif /* FFMPEGDemo_Bridging_Header_h */

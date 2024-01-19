@@ -5,123 +5,81 @@
 //  Created by Siamak Rostami on 1/25/21.
 //
 
-import UIKit
-import mobileffmpeg
 import AVKit
+import ffmpegkit
+import UIKit
+
+// MARK: - ViewController
 
 class ViewController: UIViewController {
-    
-    @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var progressPercentageLabel: UILabel!
-    var convertViewModel : ConverterViewModel!
-    
+    // MARK: Internal
+
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var progressPercentageLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        initData()
+        ConvertLocalFile()
+        bindProgress()
+        bindPercentage()
+        bindCompletedProgress()
         // Do any additional setup after loading the view.
     }
+
+    // MARK: Private
+
+    private lazy var convertViewModel: ConverterViewModel = .init()
 }
 
-extension ViewController{
-    //MARK:- Initialize ViewModel
-    fileprivate func initData(){
-        self.convertViewModel = ConverterViewModel()
-        self.convertViewModel.delegate = self
-        self.ConvertLocalFile()
-    }
-    
-    //MARK:- Convert Local File From Main Bundle
-    func ConvertLocalFile(){
-        let url = Bundle.main.url(forResource: "test", withExtension: "mp4")
-        guard let inputUrl = url else{return}
-        //https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8
-   // https://1307889028.vod2.myqcloud.com/4985057avodger1307889028/995c8f26387702294028133240/kERQdXwS1z8A.mp4
-    //https://api.mp4.to/static/downloads/99e4537e67a540769/bd44dc72-b38b-49ea-9d04-80d0dd84a8aa.m3u8
-   // https://1307889028.vod2.myqcloud.com/8649c42fvodhk1307889028/2b97f390387702294030708591/lLwiHBAJlRMA.mp4
-        
-//        guard let url = URL(string: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8") else {return}
-        guard let image = URL(string: "https://prod.cloud.rockstargames.com/crews/sc/8985/20777580/publish/emblem/emblem_256.png") else {return}
-        //self.convertViewModel.convertHLStoMp4(url: url)
-        self.convertViewModel.addWatermarkToVideo(video: inputUrl, watermark: image)
-       // self.convertViewModel.addWatermarkToVideo(video: url, watermark: image)
-        //self.convertViewModel.addWatermarkToVideo(video: url, watermark: image)
-       // self.convertViewModel.convertVideoFrom(url: inputUrl)
-    }
-    
-    fileprivate func openShareSheet(url : URL){
-        DispatchQueue.main.async {
-            let excluded = [UIActivity.ActivityType.addToReadingList
-                            ,UIActivity.ActivityType.assignToContact
-                            ,UIActivity.ActivityType.markupAsPDF
-                            ,UIActivity.ActivityType.openInIBooks
-                            ,UIActivity.ActivityType.print]
-            let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-            activityController.excludedActivityTypes = excluded
-            self.present(activityController, animated: true, completion: nil)
+extension ViewController {
+    // MARK: - Convert Local File From Main Bundle
+
+    private func ConvertLocalFile() {
+        guard let url = Bundle.main.url(forResource: "test", withExtension: "mp4") else {
+            return
         }
-    }
-    
-    
-    //MARK:- Open AVPlayerController for playing converted audio
-    fileprivate func openAudioPlayer(){
-        guard let fileUrl = self.convertViewModel.outputPath else{return}
-        debugPrint(fileUrl)
-        DispatchQueue.main.async {
-            let player = AVPlayer(url: fileUrl)
-            let pc = AVPlayerViewController()
-            pc.player = player
-            self.present(pc, animated: true) {
-                pc.player?.play()
-            }
+        guard let image = URL(string: "https://prod.cloud.rockstargames.com/crews/sc/8985/20777580/publish/emblem/emblem_256.png") else {
+            return
         }
+        convertViewModel.addWatermarkToVideo(video: url, watermark: image)
     }
-    
-    //MARK:- Calculate ProgressBar Progress and Progress Percentage
-    fileprivate func calculateProgressPercentage(current : Int32){
-        guard let totalTime = self.convertViewModel.totalTime else{return}
-        let progress = (Double(current) / totalTime) / 1000
-        let percent = (Double(current) / totalTime) / 10
-        self.setProgressData(progress: progress, percent: percent)
-        debugPrint("percentage : \(progress)")
+
+    private func bindProgress() {
+        convertViewModel.$progress
+            .subscribe(on: DispatchQueue.main)
+            .sink { [weak self] progress in
+                DispatchQueue.main.async {
+                    self?.progressView.setProgress(Float(progress ?? 0), animated: true)
+                }
+            }.store(in: &convertViewModel.cancellables)
     }
-    
-    //MARK:- Update UI
-    fileprivate func setProgressData(progress : Double , percent : Double){
-        DispatchQueue.main.async {
-            self.progressView.setProgress(Float(progress), animated: true)
-            self.progressPercentageLabel.text = "\(percent.rounded()) %"
-        }
-        
+
+    private func bindPercentage() {
+        convertViewModel.$percentage
+            .subscribe(on: DispatchQueue.main)
+            .sink { [weak self] percentage in
+                DispatchQueue.main.async {
+                    self?.progressPercentageLabel.text = "\(percentage?.rounded() ?? 0) %"
+                }
+            }.store(in: &convertViewModel.cancellables)
+    }
+
+    private func bindCompletedProgress() {
+        convertViewModel.$completedAtUrl
+            .subscribe(on: DispatchQueue.main)
+            .sink { [weak self] url in
+                DispatchQueue.main.async {
+                    guard let url = url else {
+                        return
+                    }
+                    let player = AVPlayer(url: url)
+                    let pc = AVPlayerViewController()
+                    pc.player = player
+                    self?.present(pc, animated: true) {
+                        pc.player?.play()
+                    }
+                }
+
+            }.store(in: &convertViewModel.cancellables)
     }
 }
-
-//MARK:- FFMPEG Progress Protocols
-extension ViewController : ConvertProgressProtocols{
-    /// Converting Progress
-    func ConvertProgress(progress: Int32) {
-        calculateProgressPercentage(current: progress)
-    }
-    /// Converting Status
-    func ConvertStatus(status: Int32) {
-        debugPrint("status : \(status)")
-        if status == RETURN_CODE_SUCCESS{
-            if convertViewModel.isConvert{
-                guard let image = URL(string: "https://prod.cloud.rockstargames.com/crews/sc/8985/20777580/publish/emblem/emblem_256.png") else {return}
-                guard let path = self.convertViewModel.tempOutputPath else {return}
-                self.convertViewModel.addWatermarkToVideo(video: path, watermark: image)
-            }else{
-                guard let path = self.convertViewModel.outputPath else {return}
-                openShareSheet(url: path)
-                //self.openAudioPlayer()
-            }
-
-        }
-    }
-    /// Converting Log
-    func ExecutionStatus(executionId: Int, level: Int32, message: String!) {
-        debugPrint("message : \(String(describing: message))")
-    }
-    
-}
-
-

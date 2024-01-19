@@ -5,189 +5,199 @@
 //  Created by Siamak Rostami on 3/7/21.
 //
 
-import Foundation
-import mobileffmpeg
 import AVKit
+import Combine
+import ffmpegkit
+import Foundation
 
-//MARK:- Audio Bitrate Enums
-enum bitrate : Int{
+// MARK: - bitrate
+
+// MARK: - Audio Bitrate Enums
+
+enum bitrate: Int {
     case
         /// low = 64k
-        low = 64,
-        ///medium = 128k
-        medium = 128,
-        ///high = 256k
-        high = 256,
-        ///veryHigh = 320k
+        low = 64
+    case /// medium = 128k
+        medium = 128
+    case /// high = 256k
+        high = 256
+    case /// veryHigh = 320k
         veryHigh = 320
 }
 
-//MARK:- Convert Protocols
-protocol ConvertProgressProtocols {
-    func ConvertProgress(progress : Int32)
-    func ConvertStatus(status : Int32)
-    func ExecutionStatus(executionId: Int, level: Int32,message: String!)
+// MARK: - ConverterViewModel
+
+// MARK: - Class Definition
+
+class ConverterViewModel: NSObject {
+    // MARK: Internal
+
+    @Published var completedAtUrl: URL?
+    @Published var progressTime: Int32?
+    @Published var percentage: Double?
+    @Published var progress: Double?
+    var cancellables = Set<AnyCancellable>()
+
+    // MARK: Private
+
+    private var outputPath: URL?
+    private var tempOutputPath: URL?
+    private var totalTime: Double?
 }
 
-//MARK:- Class Definition
-class ConverterViewModel : NSObject{
-    var delegate : ConvertProgressProtocols!
-    let fileManager = FileManager.default
-    var outputPath : URL?
-    var tempOutputPath : URL?
-    var totalTime : Double?
-    var isConvert = true
-}
+extension ConverterViewModel {
+    // MARK: - Convert Audio From Input URL
 
-extension ConverterViewModel{
-    
-    //MARK:- Convert Audio From Input URL
-    func convertAudioFrom(url : URL , quality : bitrate){
+    func convertAudioFrom(url: URL, quality: bitrate) {
         self.createAudioOutputPath(from: url)
         self.calculateTotalTime(url: url)
-        guard let path = outputPath else{return}
-        let command = "-i \(url) -acodec libmp3lame -ab \(quality.rawValue)k \(path)"
-        MobileFFmpegConfig.setLogDelegate(self)
-        MobileFFmpegConfig.setStatisticsDelegate(self)
-        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
-            debugPrint("converter status code :\(converter)")
+        guard let path = tempOutputPath else {
+            return
         }
+        let command = "-i \(url) -acodec libmp3lame -ab \(quality.rawValue)k \(path)"
+        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
+            self?.outputPath = self?.tempOutputPath
+            self?.completedAtUrl = self?.outputPath
+        }, withLogCallback: { _ in
+        }, withStatisticsCallback: { [weak self] stat in
+            self?.calculateProgress(currentTime: stat?.getTime())
+        }, onDispatchQueue: .global(qos: .userInitiated))
     }
     
-    func convertHLStoMp4(url : URL){
+    func convertHLStoMp4(url: URL) {
         self.createTempOutputPathForHLS(from: url)
         self.calculateTotalTime(url: url)
-        guard let path = self.tempOutputPath else{return}
+        guard let path = tempOutputPath else {
+            return
+        }
         let command = "-i \(url) -codec:v libx264 -preset ultrafast \(path)"
-        MobileFFmpegConfig.setLogDelegate(self)
-        MobileFFmpegConfig.setStatisticsDelegate(self)
-        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
-            debugPrint("converter status code :\(converter)")
-        }
+        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
+            self?.outputPath = self?.tempOutputPath
+            self?.completedAtUrl = self?.outputPath
+        }, withLogCallback: { _ in
+        }, withStatisticsCallback: { [weak self] stat in
+            self?.calculateProgress(currentTime: stat?.getTime())
+        }, onDispatchQueue: .global(qos: .userInitiated))
     }
     
-//    func addWatermarkToHLS(hls url : URL , watermark : URL){
-//        self.createVideoOutputPath(from: url)
-//        self.calculateTotalTime(url: url)
-//        guard let path = outputPath else{return}
-//       // -codec:v libx264 -preset ultrafast -filter_complex overlay
-//       // -i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") -c:v libx264 -crf 23 \(path)
-//        let command = "-i \(url) -codec:v libx264 -preset ultrafast \(path)"
-//        MobileFFmpegConfig.setLogDelegate(self)
-//        MobileFFmpegConfig.setStatisticsDelegate(self)
-//        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
-//            debugPrint("converter status code :\(converter)")
-//        }
-//    }
-    
-    func addWatermarkToVideo(video url : URL , watermark : URL){
-        self.isConvert = false
+    func addWatermarkToHLS(hls url: URL, watermark: URL) {
         self.createVideoOutputPath(from: url)
         self.calculateTotalTime(url: url)
-        guard let path = outputPath else{return}
+        guard let path = tempOutputPath else {
+            return
+        }
+        let command = "-i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") -c:v libx264 -crf 23 \(path)"
+        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
+            self?.outputPath = self?.tempOutputPath
+            self?.completedAtUrl = self?.outputPath
+        }, withLogCallback: { _ in
+        }, withStatisticsCallback: { [weak self] stat in
+            self?.calculateProgress(currentTime: stat?.getTime())
+        }, onDispatchQueue: .global(qos: .userInitiated))
+    }
+    
+    func addWatermarkToVideo(video url: URL, watermark: URL) {
+        self.createVideoOutputPath(from: url)
+        self.calculateTotalTime(url: url)
+        guard let path = tempOutputPath else {
+            return
+        }
         let command = "-i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") -threads 0 \(path)"
-        MobileFFmpegConfig.setLogDelegate(self)
-        MobileFFmpegConfig.setStatisticsDelegate(self)
-        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
-            debugPrint("converter status code :\(converter)")
-        }
-        
+        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
+            self?.outputPath = self?.tempOutputPath
+            self?.completedAtUrl = self?.outputPath
+        }, withLogCallback: { _ in
+        }, withStatisticsCallback: { [weak self] stat in
+            self?.calculateProgress(currentTime: stat?.getTime())
+        }, onDispatchQueue: .global(qos: .userInitiated))
     }
     
-    func convertVideoFrom(url : URL){
+    func convertVideoFrom(url: URL) {
         self.createVideoOutputPath(from: url)
         self.calculateTotalTime(url: url)
-        guard let path = outputPath else{return}
-        let command = "-i \(url) -c:v libx264 -crf 23 \(path)"
-        MobileFFmpegConfig.setLogDelegate(self)
-        MobileFFmpegConfig.setStatisticsDelegate(self)
-        if let converter = MobileFFmpeg.executeAsync(command, withCallback: self, andDispatchQueue: .global(qos: .userInteractive)) as Int32?{
-            debugPrint("converter status code :\(converter)")
+        guard let path = tempOutputPath else {
+            return
         }
-        
+        let command = "-i \(url) -c:v libx264 -crf 23 \(path)"
+        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
+            self?.outputPath = self?.tempOutputPath
+            self?.completedAtUrl = self?.outputPath
+        }, withLogCallback: { _ in
+        }, withStatisticsCallback: { [weak self] stat in
+            self?.calculateProgress(currentTime: stat?.getTime())
+        }, onDispatchQueue: .global(qos: .userInitiated))
     }
-    func cancelConvertProgress(){
-        MobileFFmpeg.cancel()
+
+    func cancelConvertProgress() {
+        FFmpegKit.cancel()
     }
     
-    //MARK:- Create Output Path For Converted Audio
-    func createAudioOutputPath(from url : URL){
-        let fileMgr = FileManager.default
-        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
+    // MARK: - Create Output Path For Converted Audio
+
+    private func createAudioOutputPath(from url: URL) {
+        let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: " ", with: "")).mp3")
         self.checkFileExistance(in: filePath)
-        self.outputPath = filePath
+        self.tempOutputPath = filePath
     }
     
-    func createVideoOutputPath(from url : URL){
-        let fileMgr = FileManager.default
-        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
+    private func createVideoOutputPath(from url: URL) {
+        let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: " ", with: "")).mp4")
         self.checkFileExistance(in: filePath)
-        self.outputPath = filePath
+        self.tempOutputPath = filePath
     }
     
-    func createTempOutputPathForHLS(from url : URL){
-        let fileMgr = FileManager.default
-        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
+    private func createTempOutputPathForHLS(from url: URL) {
+        let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: ".m3u8", with: "")).mp4")
         self.checkFileExistance(in: filePath)
         self.tempOutputPath = filePath
     }
-
     
-    //MARK:- Check File Existance
-    func checkFileExistance(in url : URL){
-        if FileManager.default.fileExists(atPath: url.path){
-            do{
-                try fileManager.removeItem(at: url)
-            }catch{
+    // MARK: - Check File Existance
+
+    private func checkFileExistance(in url: URL) {
+        if FileManager.default.fileExists(atPath: url.path) {
+            do {
+                try FileManager.default.removeItem(at: url)
+            } catch {
                 debugPrint("Error")
             }
-        }else{
+        } else {
             debugPrint("file doesn't exist")
         }
     }
-    //MARK:- Calculate Input Audio File's Duration
-    fileprivate func calculateTotalTime(url : URL?){
-        guard let newUrl = url else{return}
+
+    // MARK: - Calculate Input Audio File's Duration
+
+    private func calculateTotalTime(url: URL?) {
+        guard let newUrl = url else {
+            return
+        }
         let assets = AVURLAsset(url: newUrl)
         let option = ["duration"]
         assets.loadValuesAsynchronously(forKeys: option) {
-            var error : NSError? = nil
+            var error: NSError?
             let status = assets.statusOfValue(forKey: "duration", error: &error)
-            switch status{
+            switch status {
             case .loaded:
                 debugPrint(assets.duration)
                 self.totalTime = assets.duration.seconds
-                break
             default:
                 debugPrint(assets.duration)
-                break
             }
         }
-
     }
     
-}
-
-//MARK:- FFMPEG ExecuteDelegate
-extension ConverterViewModel : ExecuteDelegate{
-    func executeCallback(_ executionId: Int, _ returnCode: Int32) {
-        delegate.ConvertStatus(status: returnCode)
+    private func calculateProgress(currentTime: Double?) {
+        guard let totalTime = self.totalTime else {
+            return
+        }
+        let progress = (Double(currentTime ?? 0) / totalTime) / 1000
+        let percent = (Double(currentTime ?? 0) / totalTime) / 10
+        self.percentage = percent
+        self.progress = progress
     }
-}
-//MARK:- FFMPEG LogDelegate
-extension ConverterViewModel : LogDelegate {
-    func logCallback(_ executionId: Int, _ level: Int32, _ message: String!) {
-        delegate.ExecutionStatus(executionId: executionId, level: level, message: message)
-    }
-}
-//MARK:- FFMPEGCONFIG StatisticsDelegate
-extension ConverterViewModel : StatisticsDelegate{
-    func statisticsCallback(_ statistics: Statistics!) {
-        delegate.ConvertProgress(progress: statistics.getTime())
-    }
-    
-    
 }
