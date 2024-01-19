@@ -99,12 +99,12 @@
 		0129112C25BEF04500AD91E4 /* FFMPEGDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0147474425F513110084574D /* ViewModels */,
-				0147474325F513070084574D /* ViewControllers */,
+				0147474425F513110084574D /* ViewModel */,
+				0147474325F513070084574D /* ViewController */,
 				0147474625F513430084574D /* Headers */,
-				0147474525F513260084574D /* StoryBoards */,
 				0129112D25BEF04500AD91E4 /* AppDelegate.swift */,
 				0129112F25BEF04500AD91E4 /* SceneDelegate.swift */,
+				0129113825BEF04600AD91E4 /* LaunchScreen.storyboard */,
 				0162D36E278DB60C0047BFAF /* test.mp4 */,
 				0129113625BEF04600AD91E4 /* Assets.xcassets */,
 				0129113B25BEF04600AD91E4 /* Info.plist */,
@@ -112,29 +112,21 @@
 			path = FFMPEGDemo;
 			sourceTree = "<group>";
 		};
-		0147474325F513070084574D /* ViewControllers */ = {
+		0147474325F513070084574D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0129113325BEF04500AD91E4 /* Main.storyboard */,
 				0129113125BEF04500AD91E4 /* ViewController.swift */,
 			);
-			path = ViewControllers;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
-		0147474425F513110084574D /* ViewModels */ = {
+		0147474425F513110084574D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				0147473925F4EC5D0084574D /* ConverterViewModel.swift */,
 			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		0147474525F513260084574D /* StoryBoards */ = {
-			isa = PBXGroup;
-			children = (
-				0129113825BEF04600AD91E4 /* LaunchScreen.storyboard */,
-				0129113325BEF04500AD91E4 /* Main.storyboard */,
-			);
-			path = StoryBoards;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0147474625F513430084574D /* Headers */ = {
