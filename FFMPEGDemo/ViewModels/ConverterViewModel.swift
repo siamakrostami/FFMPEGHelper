@@ -12,8 +12,6 @@ import Foundation
 
 // MARK: - bitrate
 
-// MARK: - Audio Bitrate Enums
-
 enum bitrate: Int {
     case
         /// low = 64k
@@ -28,8 +26,6 @@ enum bitrate: Int {
 
 // MARK: - ConverterViewModel
 
-// MARK: - Class Definition
-
 class ConverterViewModel: NSObject {
     // MARK: Internal
 
@@ -41,7 +37,6 @@ class ConverterViewModel: NSObject {
 
     // MARK: Private
 
-    private var outputPath: URL?
     private var tempOutputPath: URL?
     private var totalTime: Double?
 }
@@ -57,46 +52,13 @@ extension ConverterViewModel {
         }
         let command = "-i \(url) -acodec libmp3lame -ab \(quality.rawValue)k \(path)"
         let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
-            self?.outputPath = self?.tempOutputPath
-            self?.completedAtUrl = self?.outputPath
+            self?.completedAtUrl = self?.tempOutputPath
         }, withLogCallback: { _ in
         }, withStatisticsCallback: { [weak self] stat in
             self?.calculateProgress(currentTime: stat?.getTime())
         }, onDispatchQueue: .global(qos: .userInitiated))
     }
-    
-    func convertHLStoMp4(url: URL) {
-        self.createTempOutputPathForHLS(from: url)
-        self.calculateTotalTime(url: url)
-        guard let path = tempOutputPath else {
-            return
-        }
-        let command = "-i \(url) -codec:v libx264 -preset ultrafast \(path)"
-        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
-            self?.outputPath = self?.tempOutputPath
-            self?.completedAtUrl = self?.outputPath
-        }, withLogCallback: { _ in
-        }, withStatisticsCallback: { [weak self] stat in
-            self?.calculateProgress(currentTime: stat?.getTime())
-        }, onDispatchQueue: .global(qos: .userInitiated))
-    }
-    
-    func addWatermarkToHLS(hls url: URL, watermark: URL) {
-        self.createVideoOutputPath(from: url)
-        self.calculateTotalTime(url: url)
-        guard let path = tempOutputPath else {
-            return
-        }
-        let command = "-i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") -c:v libx264 -crf 23 \(path)"
-        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
-            self?.outputPath = self?.tempOutputPath
-            self?.completedAtUrl = self?.outputPath
-        }, withLogCallback: { _ in
-        }, withStatisticsCallback: { [weak self] stat in
-            self?.calculateProgress(currentTime: stat?.getTime())
-        }, onDispatchQueue: .global(qos: .userInitiated))
-    }
-    
+
     func addWatermarkToVideo(video url: URL, watermark: URL) {
         self.createVideoOutputPath(from: url)
         self.calculateTotalTime(url: url)
@@ -105,24 +67,7 @@ extension ConverterViewModel {
         }
         let command = "-i \(url) -i \(watermark) -filter_complex \("overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2") -threads 0 \(path)"
         let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
-            self?.outputPath = self?.tempOutputPath
-            self?.completedAtUrl = self?.outputPath
-        }, withLogCallback: { _ in
-        }, withStatisticsCallback: { [weak self] stat in
-            self?.calculateProgress(currentTime: stat?.getTime())
-        }, onDispatchQueue: .global(qos: .userInitiated))
-    }
-    
-    func convertVideoFrom(url: URL) {
-        self.createVideoOutputPath(from: url)
-        self.calculateTotalTime(url: url)
-        guard let path = tempOutputPath else {
-            return
-        }
-        let command = "-i \(url) -c:v libx264 -crf 23 \(path)"
-        let _ = FFmpegKit.executeAsync(command, withCompleteCallback: { [weak self] _ in
-            self?.outputPath = self?.tempOutputPath
-            self?.completedAtUrl = self?.outputPath
+            self?.completedAtUrl = self?.tempOutputPath
         }, withLogCallback: { _ in
         }, withStatisticsCallback: { [weak self] stat in
             self?.calculateProgress(currentTime: stat?.getTime())
@@ -132,8 +77,8 @@ extension ConverterViewModel {
     func cancelConvertProgress() {
         FFmpegKit.cancel()
     }
-    
-    // MARK: - Create Output Path For Converted Audio
+
+    // MARK: - Create Output Path For Converted Video & Video
 
     private func createAudioOutputPath(from url: URL) {
         let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -141,21 +86,14 @@ extension ConverterViewModel {
         self.checkFileExistance(in: filePath)
         self.tempOutputPath = filePath
     }
-    
+
     private func createVideoOutputPath(from url: URL) {
         let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: " ", with: "")).mp4")
         self.checkFileExistance(in: filePath)
         self.tempOutputPath = filePath
     }
-    
-    private func createTempOutputPathForHLS(from url: URL) {
-        let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let filePath = dirPaths[0].appendingPathComponent("\(url.lastPathComponent.replacingOccurrences(of: ".m3u8", with: "")).mp4")
-        self.checkFileExistance(in: filePath)
-        self.tempOutputPath = filePath
-    }
-    
+
     // MARK: - Check File Existance
 
     private func checkFileExistance(in url: URL) {
@@ -163,10 +101,10 @@ extension ConverterViewModel {
             do {
                 try FileManager.default.removeItem(at: url)
             } catch {
-                debugPrint("Error")
+                debugPrint("Can't remove the file")
             }
         } else {
-            debugPrint("file doesn't exist")
+            debugPrint("File doesn't exist")
         }
     }
 
@@ -190,7 +128,7 @@ extension ConverterViewModel {
             }
         }
     }
-    
+
     private func calculateProgress(currentTime: Double?) {
         guard let totalTime = self.totalTime else {
             return
